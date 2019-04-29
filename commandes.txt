@@ -1,0 +1,67 @@
+// créer une collection
+db.createCollection('teachers')
+
+// insérer un document
+db.teachers.insert({"name":"Chris"})
+INSERT INTO teachers name VALUES("Chris") 
+
+
+// Récupération, recherche
+db.getCollection('students').find({})
+SELECT * FROM dnt3.students
+
+db.students.find({"name": "Léa"}) // égalité
+SELECT * FROM dnt3.students WHERE name = "Léa"
+
+db.students.find({ "age": {$gt: 50} }) // supériorité stricte
+db.students.find({ "age": {$gte: 50} }) // >= 50
+db.students.find({ "strong": {$ne: true} }) // not equal
+// $lt, $lte
+
+// Plusieurs filtres en ET
+db.students.find({ $and: [{"name":"Léa"}, {"strong":true}] })
+
+db.students.find({ $or: [{"name":"Léa"}, {"strong":true}] })
+
+// recherche les Léa de moins de 20 ou les Léa fortes
+db.students.find(
+    { "name": "Léa" },
+    { $or: [{"age": {$lt: 20}}, {"strong":true}] }
+)
+
+// Modifier un (et un seul) document
+db.students.update({"name":"Léa"}, {$set: {"strong": true}})
+UPDATE students SET strong = true,  WHERE name = "Léa"
+
+// Modifier plusieurs documents
+db.students.update({}, {$set: {"strong": false}}, {multi:true})
+
+// Supprimer un document
+db.students.remove({"_id": ObjectId("5cc6be168b4b475d63beb54b")})
+
+// Limiter le nombre de résultats
+// Inclure et/ou exclure certains champs
+db.students.find({}, {"name":1, "_id":0}).limit(2)
+
+// Trier les résultats
+db.students.find({}).sort({"age": 1}) // du moins âgé au plus âgé
+db.students.find({}).sort({"age": -1}) // inverse
+
+// Recherche dans un sous-document
+db.students.find(
+    {"country.population": {$gt: 10} }
+)
+
+
+// Recherche dans un tableau de valeurs simples
+// $elemMatch renvoie le document si au moins une valeur
+// du tableau correspond à la condition
+db.students.find(
+    {"notes": { $elemMatch: { $gte: 10 } } }
+)
+
+// Recherche dans un tableau d'objets
+db.students.find(
+    {languages: { $elemMatch: { name: "anglais", level: "C2" } } }
+)
+

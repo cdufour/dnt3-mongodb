@@ -1,0 +1,25 @@
+\\DESKTOP-HQGR83K\Downloads
+
+Téléchargez et installez:
+- un éditeur
+- nodejs (10.15.3)
+- mongodb server (version 4)
+- robo 3T
+- postman
+
+No SQL vs Relationnel
+Mongodb, couchDB
+
+DATABASE => DATABASE
+TABLE => COLLECTION
+ROW => DOCUMENT
+COLUMN => FIELD
+
+Schemaless, flexibilité
+Toutes les infos dans le doc, éviter jointures excessives
+Big Data
+Format bson (très proche du json) : interopérabilité accrue
+
+
+
+
