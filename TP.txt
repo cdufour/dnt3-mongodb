@@ -1,0 +1,16 @@
+M. Farouk, directeur du cinéma "L'Odyssée" à Strasbourg
+vous charge de prototyper une app permettant de consulter
+un calendrier de programmation de films
+
+Le Cinéma a deux salles. Horaires d'ouverture: 10h-22h
+
+L'application doit permettre:
+- l'enregistrement de films
+- l'enregistrement de séances
+- la consultation des séances programmées pour une plage 
+chronologique donnée
+(exemple: programmation du mercredi 01 mai, 
+programmation entre le jeudi 02 mai et le dimanche 5 mai)
+
+Film: id, titre, réalisateur, acteurs, durée, année, pays, vost
+Séance: id, date/heure, film, salle
