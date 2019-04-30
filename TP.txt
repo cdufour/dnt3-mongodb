@@ -14,3 +14,6 @@ programmation entre le jeudi 02 mai et le dimanche 5 mai)
 
 Film: id, titre, réalisateur, acteurs, durée, année, pays, vost
 Séance: id, date/heure, film, salle
+
+Contraintes:
+Eviter les dépassements et chevauchements d'horaires
